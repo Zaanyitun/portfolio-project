@@ -1,6 +1,16 @@
-$accent-blue: #00b7eb;
-$hover-blue: #3b82f6;
-$text-light: #f1f5f9;
+@import "../App"; // Import App.scss from src/
+
+.skills-section {
+  background: rgba($card-bg, 0.3);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba($text-light, 0.2);
+  padding: 4rem;
+  margin: 5rem auto;
+  max-width: 1200px;
+  width: 95%;
+}
 
 .skills-list {
   display: flex;
@@ -26,7 +36,7 @@ $text-light: #f1f5f9;
 
 .progress-bar {
   height: 10px;
-  background: rgba(0, 183, 235, 0.2); // Static background for unfilled portion
+  background: rgba($accent-blue, 0.2);
   border-radius: 20px;
   position: relative;
   overflow: hidden;
@@ -34,7 +44,7 @@ $text-light: #f1f5f9;
 
 .progress-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, $accent-blue, $hover-blue);
+  background: $accent-blue;
   border-radius: 20px;
   position: absolute;
   top: 0;
@@ -42,7 +52,7 @@ $text-light: #f1f5f9;
   animation: pulse 2s infinite ease-in-out;
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -50,8 +60,8 @@ $text-light: #f1f5f9;
     height: 100%;
     background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0)
+      rgba($text-light, 0.3),
+      rgba($text-light, 0)
     );
     animation: shimmer 1.5s infinite;
   }
@@ -59,13 +69,13 @@ $text-light: #f1f5f9;
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 10px rgba(0, 183, 235, 0.5);
+    box-shadow: 0 0 10px rgba($accent-blue, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(0, 183, 235, 0.8);
+    box-shadow: 0 0 20px rgba($accent-blue, 0.5);
   }
   100% {
-    box-shadow: 0 0 10px rgba(0, 183, 235, 0.5);
+    box-shadow: 0 0 10px rgba($accent-blue, 0.3);
   }
 }
 
@@ -81,29 +91,27 @@ $text-light: #f1f5f9;
 .skill-name {
   font-size: 1.1rem;
   font-weight: 500;
-  color: #f1f5f9;
-  background: rgba(0, 183, 235, 0.1);
+  color: $text-light;
+  background: rgba($accent-blue, 0.1);
   padding: 2px 6px;
   border-radius: 4px;
-  text-shadow: 0 0 5px rgba(0, 183, 235, 0.5);
-  transition: text-shadow 0.3s ease, background 0.3s ease;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  transition: all 0.3s ease;
 
   &:hover {
-    text-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-    background: rgba(0, 183, 235, 0.2);
+    background: rgba($accent-blue, 0.2);
+    transform: scale(1.05);
   }
 
   .skill-icon {
     font-size: 1.2rem;
-    color: #00b7eb;
-    text-shadow: 0 0 5px rgba(0, 183, 235, 0.5);
-    transition: text-shadow 0.3s ease;
+    color: $accent-blue;
+    transition: transform 0.3s ease;
 
     &:hover {
-      text-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
+      transform: rotate(15deg);
     }
   }
 }
@@ -112,37 +120,48 @@ $text-light: #f1f5f9;
   margin-top: 3rem;
   text-align: center;
   padding: 6rem 0;
+  background: rgba($card-bg, 0.3);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba($text-light, 0.2);
 
   h3 {
     color: $accent-blue;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
   }
 
   svg {
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
-    filter: drop-shadow(0 4px 10px rgba(0, 183, 235, 0.3));
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
 
     path {
       transition: transform 0.3s ease;
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.04);
       }
     }
 
     text {
-      text-shadow: 0 0 5px rgba(0, 183, 235, 0.3);
-      transition: text-shadow 0.3s ease;
+      transition: all 0.3s ease;
       &:hover {
-        text-shadow: 0 0 10px rgba(0, 183, 235, 0.6);
+        font-size: 1.2rem;
+        font-weight: 600;
       }
     }
   }
 }
 
 @media (max-width: 768px) {
+  .skills-section {
+    padding: 2.5rem;
+    margin: 3rem auto;
+  }
+
   .skill-pair {
     flex-direction: column;
     gap: 1rem;

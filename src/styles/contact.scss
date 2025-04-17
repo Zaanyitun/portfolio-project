@@ -1,56 +1,37 @@
-$accent-blue: #00b7eb;
-$hover-blue: #3b82f6;
-$text-light: #f1f5f9;
+@import "../App"; // Import App.scss from src/
 
 .contact-section {
-  padding: 6rem 2rem;
-  background: linear-gradient(135deg, #1e2a44 0%, #2d3b55 100%);
-  color: #f1f5f9;
+  background: rgba($card-bg, 0.3);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba($text-light, 0.2);
+  padding: 4rem;
+  margin: 5rem auto;
+  max-width: 1200px;
+  width: 95%;
   text-align: center;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(0, 183, 235, 0.1) 0%, transparent 70%);
-    opacity: 0.5;
-    animation: pulse 10s infinite ease-in-out;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.5);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
 }
 
 .contact-container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  display: block; /* Changed from flex to block */
+  display: block;
 }
 
 .contact-form {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba($card-bg, 0.4);
+  backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 183, 235, 0.2);
-  transition: all 0.3s ease;
-  margin-bottom: 2rem; /* Add spacing between form and social media */
+  border: 1px solid rgba($text-light, 0.2);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 
   .form-group {
     margin-bottom: 1.5rem;
@@ -59,7 +40,7 @@ $text-light: #f1f5f9;
     label {
       display: block;
       font-size: 1.1rem;
-      color: #f1f5f9;
+      color: $text-light;
       margin-bottom: 0.5rem;
     }
 
@@ -68,16 +49,15 @@ $text-light: #f1f5f9;
       width: 100%;
       padding: 0.8rem;
       font-size: 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(0, 183, 235, 0.3);
+      background: rgba($text-light, 0.1);
+      border: 1px solid rgba($accent-blue, 0.3);
       border-radius: 5px;
-      color: #f1f5f9;
+      color: $text-light;
       transition: border-color 0.3s ease;
 
       &:focus {
         outline: none;
         border-color: $accent-blue;
-        box-shadow: 0 0 10px rgba(0, 183, 235, 0.3);
       }
     }
 
@@ -91,7 +71,7 @@ $text-light: #f1f5f9;
     padding: 0.8rem 2rem;
     font-size: 1.1rem;
     background: $accent-blue;
-    color: #fff;
+    color: $text-light;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -104,15 +84,18 @@ $text-light: #f1f5f9;
 }
 
 .social-media {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba($card-bg, 0.4);
+  backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 183, 235, 0.2);
+  border: 1px solid rgba($text-light, 0.2);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
 
   h3 {
     font-size: 1.5rem;
     color: $accent-blue;
     margin-bottom: 1.5rem;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
   }
 
   .social-links {
@@ -131,34 +114,30 @@ $text-light: #f1f5f9;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #f1f5f9;
+    color: $text-light;
     text-decoration: none;
     font-size: 1.1rem;
     padding: 0.5rem 1rem;
-    background: rgba(0, 183, 235, 0.1);
+    background: rgba($accent-blue, 0.1);
     border-radius: 5px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
 
     &:hover {
-      background: rgba(0, 183, 235, 0.2);
+      background: rgba($accent-blue, 0.2);
+      transform: scale(1.05);
     }
 
     .social-icon {
       font-size: 1.5rem;
       color: $accent-blue;
-      text-shadow: 0 0 5px rgba(0, 183, 235, 0.5);
-      transition: text-shadow 0.3s ease;
-
-      &:hover {
-        text-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-      }
     }
   }
 }
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 4rem 1rem;
+    padding: 2.5rem;
+    margin: 3rem auto;
   }
 
   .contact-form {

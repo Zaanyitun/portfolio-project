@@ -1,10 +1,16 @@
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import Home from './pages/Home';
-import Projects from './pages/Projects';
-import Skills from './pages/Skills';
-import Contact from './pages/Contact';
-import './App.scss';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  NavLink,
+} from "react-router-dom";
+import { motion } from "framer-motion";
+import Home from "./pages/Home";
+import Projects from "./pages/Projects";
+import Skills from "./pages/Skills";
+import Contact from "./pages/Contact";
+import Experience from "./pages/Experience"; // New import
+import "./App.scss";
 
 function App() {
   return (
@@ -18,7 +24,7 @@ function App() {
         <motion.header
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="header-container">
             <motion.h1
@@ -26,22 +32,23 @@ function App() {
               animate={{ x: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              Zanny's Portfolio
+              Zan Nyi's Portfolio
             </motion.h1>
             <nav>
               {[
-                { path: '/', label: 'Home' },
-                { path: '/projects', label: 'Projects' },
-                { path: '/skills', label: 'Skills' },
-                { path: '/contact', label: 'Contact' },
+                { path: "/", label: "Home" },
+                { path: "/projects", label: "Projects" },
+                { path: "/skills", label: "Skills" },
+                { path: "/experience", label: "Experience" }, // New link
+                { path: "/contact", label: "Contact" },
               ].map((item, index) => (
                 <NavLink
                   key={item.path}
                   to={item.path}
-                  className={({ isActive }) => (isActive ? 'active' : '')}
+                  className={({ isActive }) => (isActive ? "active" : "")}
                 >
                   <motion.span
-                    whileHover={{ scale: 1.1, color: '#00b7eb' }}
+                    whileHover={{ scale: 1.1, color: "#00b7eb" }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -59,8 +66,13 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/skills" element={<Skills />} />
+            <Route path="/experience" element={<Experience />} />{" "}
+            {/* New route */}
             <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<div>Page Not Found - Try /contact</div>} />
+            <Route
+              path="*"
+              element={<div>Page Not Found - Try /contact</div>}
+            />
           </Routes>
         </main>
         <motion.footer
@@ -68,7 +80,7 @@ function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <p>© 2025 Zanny. Built with React.</p>
+          <p>© 2025 Zan Nyi. Built with React.</p>
         </motion.footer>
       </motion.div>
     </Router>

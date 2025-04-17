@@ -1,19 +1,50 @@
-import { motion } from 'framer-motion';
-import { 
-  FaFacebookF, FaYoutube, FaTelegramPlane, FaInstagram, FaSnapchatGhost, FaTiktok,
-  FaTwitter as FaX, FaGithub
-} from 'react-icons/fa';
+import { motion } from "framer-motion";
+import {
+  FaFacebookF,
+  FaYoutube,
+  FaTelegramPlane,
+  FaInstagram,
+  FaSnapchatGhost,
+  FaTiktok,
+  FaTwitter as FaX,
+  FaGithub,
+} from "react-icons/fa";
+import "../styles/contact.scss";
 
 function Contact() {
   const socialMedia = [
-    { name: 'Facebook', link: 'https://facebook.com', icon: <FaFacebookF /> },
-    { name: 'YouTube', link: 'https://youtube.com', icon: <FaYoutube /> },
-    { name: 'Telegram', link: 'https://telegram.org', icon: <FaTelegramPlane /> },
-    { name: 'Instagram', link: 'https://instagram.com', icon: <FaInstagram /> },
-    { name: 'Snapchat', link: 'https://snapchat.com', icon: <FaSnapchatGhost /> },
-    { name: 'TikTok', link: 'https://tiktok.com', icon: <FaTiktok /> },
-    { name: 'X', link: 'https://x.com/yourusername', icon: <FaX /> }, // Replace with your X username
-    { name: 'GitHub', link: 'https://github.com/yourusername', icon: <FaGithub /> }, // Replace with your GitHub username
+    {
+      name: "Facebook",
+      link: "https://www.facebook.com/Zannyitun.23",
+      icon: <FaFacebookF />,
+    },
+    {
+      name: "YouTube",
+      link: "https://www.youtube.com/@Wuffy-zyx",
+      icon: <FaYoutube />,
+    },
+    { name: "Telegram", link: "t.me@catozyan", icon: <FaTelegramPlane /> },
+    {
+      name: "Instagram",
+      link: "https://www.instagram.com/zan_nyi_tun/",
+      icon: <FaInstagram />,
+    },
+    {
+      name: "Snapchat",
+      link: "https://snapchat.com",
+      icon: <FaSnapchatGhost />,
+    },
+    {
+      name: "TikTok",
+      link: "https://www.tiktok.com/@catohome0",
+      icon: <FaTiktok />,
+    },
+    { name: "X", link: "https://x.com/zan_nyi", icon: <FaX /> },
+    {
+      name: "GitHub",
+      link: "https://github.com/Zaanyitun",
+      icon: <FaGithub />,
+    },
   ];
 
   const pairedSocials = [];
@@ -21,13 +52,18 @@ function Contact() {
     pairedSocials.push(socialMedia.slice(i, i + 2));
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Placeholder: Add form submission logic (e.g., API call)
+    alert("Form submitted! (Placeholder)");
+  };
+
   return (
     <motion.section
-      id="contact"
+      className="contact-section"
       initial={{ opacity: 0, y: 200 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="contact-section"
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <motion.h2
         initial={{ opacity: 0 }}
@@ -43,28 +79,44 @@ function Contact() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.4, duration: 0.6 }}
       >
-        {/* Contact Form */}
         <motion.div
           className="contact-form"
-          whileHover={{ scale: 1.02, boxShadow: '0 0 15px rgba(0, 183, 235, 0.7)' }}
+          whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your Name" required />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+              />
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Your Email" required />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
             </div>
             <div className="form-group">
               <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Your Message"
+                required
+              ></textarea>
             </div>
             <motion.button
               type="submit"
-              whileHover={{ scale: 1.05, boxShadow: '0 0 15px rgba(0, 183, 235, 0.7)' }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Send Message
@@ -72,7 +124,6 @@ function Contact() {
           </form>
         </motion.div>
 
-        {/* Social Media Links */}
         <motion.div
           className="social-media"
           initial={{ opacity: 0, y: 50 }}

@@ -1,0 +1,260 @@
+@import "../App"; // Import App.scss from src/
+
+.homepage-sections {
+  margin: 5rem auto;
+  max-width: 1200px;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.section {
+  padding: 4rem;
+  background: rgba($card-bg, 0.3); // Semi-transparent for glass effect
+  backdrop-filter: blur(15px); // Frosted glass blur
+  border-radius: 20px;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.4); // Deep shadow for depth
+  border: 1px solid rgba($text-light, 0.2); // Subtle white border for glass
+  position: relative;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  h2 {
+    color: $accent-blue;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  &.full {
+    .section-content-inner {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .section-photo {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid rgba($accent-blue, 0.5);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease;
+      }
+
+      .about-text {
+        flex: 1;
+        color: $text-light;
+        line-height: 1.9;
+        font-size: 1.4rem;
+        text-align: left;
+        max-width: 800px;
+        min-width: 300px;
+
+        .highlight {
+          color: $accent-blue;
+          font-weight: 700;
+          background: rgba($accent-blue, 0.2);
+          padding: 2px 6px;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+
+  &.preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-bottom: 6rem; // Space for See More button
+
+    .section-content-inner {
+      p {
+        color: $text-light;
+        line-height: 1.8;
+        font-size: 1.4rem;
+        max-width: 800px;
+        text-align: center;
+      }
+
+      a {
+        color: $accent-blue;
+        text-decoration: none;
+        font-weight: 700;
+        position: relative;
+
+        &:after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 3px;
+          bottom: -3px;
+          left: 0;
+          background: $accent-blue;
+          transition: width 0.3s ease;
+        }
+
+        &:hover {
+          &:after {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .see-more {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      padding: 1rem 2rem;
+      background: $accent-blue;
+      color: $text-light;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+
+      a {
+        color: $text-light;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage-sections {
+    margin: 3rem auto;
+    width: 95%;
+  }
+
+  .section {
+    padding: 2.5rem;
+
+    &.full {
+      .section-content-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+
+        .section-photo {
+          width: 180px;
+          height: 180px;
+        }
+
+        .about-text {
+          font-size: 1.2rem;
+          text-align: center;
+        }
+      }
+    }
+
+    &.preview {
+      padding-bottom: 5rem;
+
+      .section-content-inner {
+        p {
+          font-size: 1.2rem;
+        }
+      }
+
+      .see-more {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}
+
+.timeline-container {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.timeline-track {
+  height: 8px;
+  background: rgba($accent-blue, 0.2);
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.submachine {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  font-size: 1.5rem;
+  color: $accent-blue;
+}
+
+.experience-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.experience-card {
+  background: rgba($card-bg, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba($text-light, 0.2);
+  padding: 1rem;
+  flex: 1;
+  min-width: 200px;
+  text-align: left;
+
+  .year {
+    font-size: 1.2rem;
+    color: $accent-blue;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .card-content {
+    h3 {
+      font-size: 1.1rem;
+      color: $text-light;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: $text-light;
+
+      .highlight {
+        color: $accent-blue;
+        font-weight: 700;
+        background: rgba($accent-blue, 0.2);
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-list {
+    flex-direction: column;
+  }
+}

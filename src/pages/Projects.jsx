@@ -1,17 +1,38 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import "../styles/projects.scss";
 
 function Projects() {
   const projects = [
-    { name: 'To-Do List App', description: 'A task management app with local storage.', link: 'https://your-todo-app.com', github: 'https://github.com/yourusername/todo-app' },
-    { name: 'Weather Dashboard', description: 'Real-time weather data with a 5-day forecast.', link: 'https://your-weather-app.com', github: 'https://github.com/yourusername/weather-app' },
+    {
+      name: "Thin Thai",
+      description:
+        "A Thai language learning app for Burmese speakers, built with Flutter.",
+      link: "https://your-thin-thai-app.com", // Replace with actual link
+      github: "https://github.com/Zaanyitun/thin-thai", // Replace with actual repo
+      tags: ["Flutter", "Mobile App", "Education"],
+    },
+    {
+      name: "To-Do List App",
+      description: "A task management app with local storage.",
+      link: "https://your-todo-app.com",
+      github: "https://github.com/Zaanyitun/todo-app",
+      tags: ["React", "JavaScript", "Web App"],
+    },
+    {
+      name: "Weather Dashboard",
+      description: "Real-time weather data with a 5-day forecast.",
+      link: "https://your-weather-app.com",
+      github: "https://github.com/Zaanyitun/weather-app",
+      tags: ["React", "API", "Web App"],
+    },
   ];
 
   return (
     <motion.section
-      id="projects"
+      className="projects-section"
       initial={{ opacity: 0, y: 200 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <motion.h2
         initial={{ opacity: 0 }}
@@ -31,8 +52,17 @@ function Projects() {
           >
             <h3>{project.name}</h3>
             <p>{project.description}</p>
-            <a href={project.link} target="_blank" rel="noopener noreferrer">Live Demo</a>
-            <a href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+              Live Demo
+            </a>
+            <a href={project.github} target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            <ul>
+              {project.tags.map((tag, tagIndex) => (
+                <li key={tagIndex}>{tag}</li>
+              ))}
+            </ul>
           </motion.div>
         ))}
       </div>
