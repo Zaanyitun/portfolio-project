@@ -64,7 +64,7 @@ function Experience() {
   const handleHover = (yearIndex) => {
     setHoveredYear(yearIndex);
     // Adjusted positions for 6 years
-    const positions = [50, 240, 450, 657, 862, 1072]; // SVG units
+    const positions = [35, 230, 430, 630, 830, 1030]; // SVG units
     controls.start({
       x: positions[yearIndex],
       rotate: [0, 5, -5, 0], // UFO wobble
@@ -75,7 +75,7 @@ function Experience() {
   const handleHoverEnd = () => {
     setHoveredYear(null);
     controls.start({
-      x: 50, // Start at 2018
+      x: 35, // Start at 2018
       rotate: 0,
       transition: { duration: 0.6, ease: "easeInOut" },
     });

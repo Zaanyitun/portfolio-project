@@ -1,4 +1,4 @@
-@import "../App"; // Import App.scss from src/
+@import "../App";
 
 .contact-section {
   background: rgba($card-bg, 0.3);
@@ -144,9 +144,20 @@
     padding: 1.5rem;
 
     .form-group {
+      margin-bottom: 1rem;
+
+      label {
+        font-size: 1rem;
+      }
+
       input,
       textarea {
         font-size: 0.9rem;
+        padding: 0.6rem;
+      }
+
+      textarea {
+        height: 120px;
       }
     }
 
@@ -159,6 +170,14 @@
   .social-media {
     padding: 1.5rem;
 
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    .social-links {
+      gap: 0.8rem;
+    }
+
     .social-pair {
       flex-direction: column;
       gap: 1rem;
@@ -169,6 +188,65 @@
 
       .social-icon {
         font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .contact-form {
+    padding: 1rem;
+
+    .form-group {
+      margin-bottom: 0.8rem;
+
+      label {
+        font-size: 0.9rem;
+      }
+
+      input,
+      textarea {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+      }
+
+      textarea {
+        height: 100px;
+      }
+    }
+
+    button {
+      font-size: 0.9rem;
+      padding: 0.6rem 1.2rem;
+    }
+  }
+
+  .social-media {
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    .social-links {
+      gap: 0.6rem;
+    }
+
+    .social-pair {
+      gap: 0.8rem;
+    }
+
+    .social-item {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+
+      .social-icon {
+        font-size: 1.2rem;
       }
     }
   }
