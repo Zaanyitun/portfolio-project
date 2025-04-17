@@ -10,9 +10,8 @@ $gradient-bg: linear-gradient(135deg, #1e2a3c, #2c3e50);
   background: $gradient-bg;
   color: $text-light;
   min-height: 100vh;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
   overflow-x: hidden;
 }
 
@@ -51,6 +50,14 @@ header {
       position: relative;
       transition: color 0.3s ease;
 
+      &.active {
+        color: $accent-blue;
+
+        &:after {
+          width: 100%;
+        }
+      }
+
       &:after {
         content: '';
         position: absolute;
@@ -63,8 +70,6 @@ header {
       }
 
       &:hover {
-        color: $accent-blue;
-
         &:after {
           width: 100%;
         }
@@ -73,12 +78,18 @@ header {
   }
 }
 
+main {
+  padding: 2rem 0;
+}
+
 section {
-  margin: 5rem 0;
+  margin: 3rem auto;
   padding: 2.5rem;
   background: $card-bg;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  max-width: 1000px;
+  width: 90%;
   transition: transform 0.3s ease;
 
   &:hover {
@@ -97,9 +108,9 @@ h2 {
     position: absolute;
     width: 50px;
     height: 3px;
-    background: $hover-blue;
     bottom: -8px;
     left: 0;
+    background: $hover-blue;
   }
 }
 
@@ -128,43 +139,6 @@ h2 {
     line-height: 1.7;
     font-size: 1.1rem;
     min-width: 250px;
-  }
-}
-
-.project {
-  margin: 1.5rem 0;
-
-  h3 {
-    color: $text-light;
-    font-size: 1.6rem;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    line-height: 1.6;
-    font-size: 1rem;
-  }
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-li {
-  background: $hover-blue;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: $accent-blue;
-    transform: translateY(-3px);
   }
 }
 
@@ -200,6 +174,8 @@ footer {
   color: $text-light;
   font-size: 1rem;
   border-top: 1px solid rgba($hover-blue, 0.2);
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
@@ -223,9 +199,14 @@ footer {
     }
   }
 
+  main {
+    padding: 1rem 0;
+  }
+
   section {
     padding: 1.5rem;
-    margin: 3rem 0;
+    margin: 2rem auto;
+    width: 95%;
   }
 
   .about-content {
@@ -238,3 +219,7 @@ footer {
     }
   }
 }
+
+@import './styles/skills';
+@import './styles/projects';
+@import './styles/contact';
